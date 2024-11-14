@@ -11,7 +11,7 @@ XAMPP or Apache with PHP and MySQL support
 
 Step 1: Clone or Download the Project
 You can either clone the repository or download the project as a ZIP file.
-git clone https://github.com/yourusername/user_authentication_system.git
+https://github.com/mahesh1513/user_authentication_system.git
 
 Step 2: Place the Project in the XAMPP htdocs Folder
 For example, if your project is called user_authentication_system, place it like this:
