@@ -4,9 +4,6 @@ class Routes {
     public function __construct() {
 
         session_start(); // Start the session when the class is instantiated
-        if (empty($_SESSION['csrf_token'])) {
-            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        }
 
     }
 

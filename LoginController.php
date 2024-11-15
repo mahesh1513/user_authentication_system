@@ -7,7 +7,8 @@ class LoginController {
 
     public function showLoginForm() {
 
-        $csrf_token = $_SESSION['csrf_token'];
+        $_SESSION['login_csrf_token'] = bin2hex(random_bytes(32));
+        $csrf_token =$_SESSION['login_csrf_token'];
         include_once __DIR__ . '/login.php';
 
     }
@@ -16,7 +17,7 @@ class LoginController {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 
-            if (isset($_POST['csrfToken']) && $_POST['csrfToken'] === $_SESSION['csrf_token']) {
+            if (isset($_POST['csrfToken']) && $_POST['csrfToken'] === $_SESSION['login_csrf_token']) {
 
                     $email = $_POST['email'];
                     $password = $_POST['password'];

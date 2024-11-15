@@ -7,7 +7,8 @@ class RegisterController {
 
     public function showRegisterForm() {
 
-        $csrf_token = $_SESSION['csrf_token'];
+        $_SESSION['register_csrf_token'] = bin2hex(random_bytes(32));
+        $csrf_token = $_SESSION['register_csrf_token'];
         include_once  __DIR__ . '/register.php';
 
     }
@@ -16,11 +17,17 @@ class RegisterController {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 
-            if (isset($_POST['csrfToken']) && $_POST['csrfToken'] === $_SESSION['csrf_token']) {
+            if (isset($_POST['csrfToken']) && $_POST['csrfToken'] === $_SESSION['register_csrf_token']) {
 
             $username = $_POST['username'];
+            $username = filter_var($username, FILTER_SANITIZE_STRING);
+
             $email = $_POST['email'];
+            $email = filter_var($email, FILTER_SANITIZE_STRING);
+
             $password = $_POST['password'];
+            $password = filter_var($password, FILTER_SANITIZE_STRING);
+
             if (empty($username)  || empty($email) || empty($password)) {
                 $error_message = "Please fill all the fields";
                 echo json_encode(array("status" => "failure","message" => $error_message));die();
