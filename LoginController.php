@@ -37,7 +37,6 @@ class LoginController {
                     $response = $user->login();
                     if ($response['status']) {
                         echo json_encode(array("status" => "success","message" => $response['message']));
-                        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
                     } else {
                         echo json_encode(array("status" => "failure","message" => $response['message']));
                     }
