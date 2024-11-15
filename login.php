@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="css/all.min.css"
     />
     <!-- Google Fonts Roboto -->
     <link
@@ -99,51 +99,7 @@ height: 100%;
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.umd.min.js"></script>
     <!-- Custom scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">  
-    $(document).ready(function() {
-      
-      $('#login_form').submit(function(e) {
-
-        e.preventDefault();
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
-        var formData = {
-            email: $('#email').val(),
-            password: $('#password').val(),
-            csrfToken: csrfToken  // Attach CSRF token
-        };
-
-        if(formData.email == '' || formData.password == '') {
-            $('#error_message').html('Please fill in all fields');
-            return false;
-        }
-
-        $.ajax({
-            url: 'index.php?url=submit_login',
-            type: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function(response) {
-
-              if (response.status == 'success') {
-
-                  alert(response.message);
-                  window.location.href = 'index.php?url=dashboard';
-                  $('#error_message').text('');
-
-              } else {
-
-                  $('#error_message').html(response.message);
-
-              }
-
-            },
-            error: function(xhr, status, error) {
-                alert('An error occurred: ' + error);
-            }
-        });
-
-      });
-  });</script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
   </body>
 </html>

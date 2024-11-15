@@ -49,37 +49,37 @@ class Routes {
     }
 
     private function loginAction() {
-        include_once 'LoginController.php';
+        include_once __DIR__ . '/LoginController.php';
         $loginController = new LoginController();
         $loginController->showLoginForm();
     }
 
     private function loginSubmitAction() {
-        include_once 'LoginController.php';
+        include_once __DIR__ . '/LoginController.php';
         $loginController = new LoginController();
         $loginController->handleLogin();
     }
 
     private function registerAction() {
-        include_once 'RegisterController.php';
+        include_once __DIR__ . '/RegisterController.php';
         $registerController = new RegisterController();
         $registerController->showRegisterForm();
     }
 
     private function registerSubmitAction() {
-        include_once 'RegisterController.php';
+        include_once __DIR__ . '/RegisterController.php';
         $registerController = new RegisterController();
         $registerController->handleRegister();
     }
 
     private function dasboardAction() {
-        include_once 'LoginController.php';
+        include_once __DIR__ . '/LoginController.php';
         $loginController = new LoginController();
         $loginController->userdashboard();
     }
 
     private function logoutAction() {
-        include_once 'LoginController.php';
+        include_once __DIR__ . '/LoginController.php';
         $loginController = new LoginController();
         $loginController->logout();
     }

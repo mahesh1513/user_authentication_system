@@ -8,7 +8,7 @@ class LoginController {
     public function showLoginForm() {
 
         $csrf_token = $_SESSION['csrf_token'];
-        include_once 'login.php';
+        include_once __DIR__ . '/login.php';
 
     }
 
@@ -53,7 +53,7 @@ class LoginController {
 
     public function userdashboard() {
 
-        include_once 'dashboard.php';
+        include_once __DIR__ . '/dashboard.php';
 
     }
 

@@ -8,7 +8,7 @@ class RegisterController {
     public function showRegisterForm() {
 
         $csrf_token = $_SESSION['csrf_token'];
-        include_once 'register.php';
+        include_once  __DIR__ . '/register.php';
 
     }
 
