@@ -58,6 +58,17 @@ class User {
                 $stmt->fetch();
                 if (password_verify($this->password, $db_hashed_password)) {
                     
+                    if ($this->remember_me) {
+
+                        $token = bin2hex(random_bytes(16));
+                        $token_expiry = date('Y-m-d H:i:s', strtotime('+30 days'));
+                        $stmt1 = $this->conn->prepare("UPDATE users SET login_token = ?,login_token_expiry = ? WHERE id = ?");
+                        $stmt1->bind_param('ssi', $token, $token_expiry, $user_id);
+                        $stmt1->execute();
+                        setcookie('remember_me', $token, time() + 30 * 24 * 60 * 60, '/', '', false, true);
+
+                    }
+
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['username'] = $db_username;
                     $_SESSION['email'] = $email;
@@ -78,6 +89,8 @@ class User {
         }
 
     }
+
+
 
 }
 ?>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="csrf-token" content="<?php echo $csrf_token; ?>">
-    <title>User Authentication System</title>
+    <title>User Authentication System - Login</title>
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -71,6 +71,18 @@ height: 100%;
                 <input type="password" id="password" class="form-control form-control-lg"
                   placeholder="Enter password" />
                 <label class="form-label" for="password">Password</label>
+              </div>
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <!-- Checkbox -->
+                <div class="form-check mb-0">
+                  <input class="form-check-input me-2" type="checkbox" value="1" id="remember_me"/>
+                  <label class="form-check-label" for="remember_me">
+                    Remember me
+                  </label>
+                </div>
+                <!-- <a href="#!" class="text-body">Forgot password?</a> -->
               </div>
     
               <div class="d-flex justify-content-between align-items-center">

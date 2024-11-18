@@ -3,10 +3,13 @@ $(document).ready(function() {
     $('#login_form').submit(function(e) {
 
       e.preventDefault();
+
       var csrfToken = $('meta[name="csrf-token"]').attr('content');
+      var remember_me = $('#remember_me').prop('checked');
       var formData = {
           email: $('#email').val(),
           password: $('#password').val(),
+          remember_me: remember_me,
           csrfToken: csrfToken  // Attach CSRF token
       };
 

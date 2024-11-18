@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 11:19 AM
+-- Generation Time: Nov 18, 2024 at 01:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -32,7 +32,9 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(300) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
+  `login_token` varchar(300) DEFAULT NULL,
+  `login_token_expiry` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
   `modified_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
