@@ -5,7 +5,7 @@ This project is a simple user authentication system implemented in PHP using Obj
 Prerequisites
 Before you can run this project on your local machine, you need to have the following installed:
 
-PHP (>= 7.4 recommended)
+PHP (>= 7 recommended)
 MySQL (for the database)
 XAMPP or Apache with PHP and MySQL support
 
