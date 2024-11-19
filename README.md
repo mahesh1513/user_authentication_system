@@ -19,6 +19,7 @@ C:\xampp\htdocs\user_authentication_system\
 
 Step 3: Set Up the Database
 Create a new database (e.g.,  user_authentication_system).
+MySQL table structure available in : users.sql
 
 Step 4: Configure Database Connection
 Open the config/Database.php file and update the database connection details:
